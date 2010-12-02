@@ -13,10 +13,15 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+int Tn(int mul, int n) {
+	return( mul * (n * (n + 1) / 2) );
+}
+
 int main(int argc, char** argv) {
 
-	int m = 10;
+	int m = 1000;
 	int n = 0;
+	int lcm = 0;
 	int total = 0;
 	int count = 0;
 	int multiples[] = {3, 5};
@@ -29,8 +34,12 @@ int main(int argc, char** argv) {
 	for( i = 0; i < count; ++i ) {
 		n = (int) ((m - 1) / multiples[i]);
 
-		total += multiples[i] * (n * (n+1) / 2);
+		total += Tn( multiples[i], n );
 	}
+
+	lcm = multiples[0] * multiples[1];
+
+	total -= Tn( lcm, (int) ((m-1) / lcm));
 
 	printf("The total sum for the multiples of {");
 	for( i = 0; i < count; ++i ) {

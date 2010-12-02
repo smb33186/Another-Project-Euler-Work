@@ -33,4 +33,22 @@ smaller than m and, therefore, a value multiple to include.  For a number that
 already evenly divides into m, using (m-1) will account for ignoring that last
 term in determining n.
 
+
+Correction #1
+=============
+
+So I got a bit ahead of myself.  After looking for what the actual number should
+be, I was brought to the attention that I was double counting some multiples.
+
+As discussed in
+http://www.andymillar.co.uk/blog/2007/06/02/project-euler-problem-1/, there
+terms that are both mutliples of 3 and 5 that should only be counted once.  My
+solution is adding them to the final result for both multiples.
+
+Any multiples of the Least Common Multiplier (LCM) should only be counted once.
+
+The simple solution that fits with my current approach to avoid looping over
+everything, is to subtrack off the a set of those multiples to account for
+seeing them each twice.
+
 /* vim: set textwidth=80: */
