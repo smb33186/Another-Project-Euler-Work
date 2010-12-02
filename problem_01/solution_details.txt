@@ -1,4 +1,36 @@
 Solution Discussion
 ===================
 
+This problem can be fairly easily simplified and use some of the basic math
+principles to find the answer instead of having to add up all the numbers
+one-by-one.
 
+3 + 6 + 9 = 18
+		  = (3*1) + (3*2) + (3*3)
+		  = 3(1 + 2 + 3)
+
+Then using the sum of numbers from 1..n rule: sum = n(n+1)/2
+
+n = 3 ->
+	3(n(n+1)/2) = 3(3(4)/2) = 3(3(2)) = 3(6) = 18
+
+The same rule can be applied for any multiple that we are looking at.
+
+So finding n when the final number is m, where m = 10 from the sample.
+
+m / 3 = 10 / 3 = 3.3333
+
+Simply take the lower bound (integer portion) of the result and that gives you
+the n for the multiple base number.
+
+However, 10 / 5 = 2, but we are only suming multiples < m.  So we need to ignore
+the second multiple in this case.  Or, more genearlly, if the multple goes into
+m evenly, we need to ignore the last.
+
+This can be accounted for by using (m-1) instead of m when determining the value
+of n for the multiple.  Any multiple that goes into (m-1) evenly, would still be
+smaller than m and, therefore, a value multiple to include.  For a number that
+already evenly divides into m, using (m-1) will account for ignoring that last
+term in determining n.
+
+/* vim: set textwidth=80: */
