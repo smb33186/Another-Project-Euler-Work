@@ -1,5 +1,6 @@
 Solution Discussion
 ===================
+(2010/12/02)
 
 This problem can be fairly easily simplified and use some of the basic math
 principles to find the answer instead of having to add up all the numbers
@@ -36,6 +37,7 @@ term in determining n.
 
 Correction #1
 =============
+(2010/12/02)
 
 So I got a bit ahead of myself.  After looking for what the actual number should
 be, I was brought to the attention that I was double counting some multiples.
@@ -50,5 +52,15 @@ Any multiples of the Least Common Multiplier (LCM) should only be counted once.
 The simple solution that fits with my current approach to avoid looping over
 everything, is to subtrack off the a set of those multiples to account for
 seeing them each twice.
+
+
+Note #1
+============
+(2010/12/02)
+
+The "Triangle Number" is just another official term for the sum-of-numbers
+principle.
+http://en.wikipedia.org/wiki/Triangular_number
+
 
 /* vim: set textwidth=80: */
