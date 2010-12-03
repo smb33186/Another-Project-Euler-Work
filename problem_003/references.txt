@@ -1,0 +1,6 @@
+
+64-Bit Integers in C:
+	http://en.kioskea.net/faq/978-c-language-handling-64-bit-integers
+
+
+/* vim: set nu textwidth=0: */
