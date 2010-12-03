@@ -131,4 +131,12 @@ million when the loop terminates.  So we need to subtract it back out before
 displaying the final result.
 
 
+Verification
+=======================
+2010/12/02 - Failed: 4613730
+2010/12/02 - Success: 4613732
+	I had forgotten to initialize the total counter to include
+	the first even number(s) in the array.
+
+
 /* vim: set textwidth=80 nu: */

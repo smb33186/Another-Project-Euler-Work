@@ -17,7 +17,7 @@
 int main(int argc, char** argv) {
 
 	int i = 2;
-	int total = 0;
+	int total = 2;
 	int dataValues[] = {0, 2, 0};
 
 	/* Problem Solving */
