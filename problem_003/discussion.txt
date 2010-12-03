@@ -1,0 +1,40 @@
+Solution Discussion
+===================
+(2010/12/03)
+
+I was not too sure where to start with this one so I started Goolging around to
+see if I could find any details on factoring.  I quickly noticed that a brute
+force approach seemed like it would work fine for this problem.
+
+I started thinking more about the brute force approach when I was developing the
+loops and I was worried that I would be retesting values that I knew wouldn't be
+prime numbers (and that should have already been taken out/tested for).  For
+example, if the number isn't divisible by 2 then it wouldn't be divisible by 4
+or any multiple of 2.  Same goes true with any prime number: the multiples would
+not be factors in the number.  But I couldn't think of any easy way to
+filter/skip those values that wouldn't involve a lot of additional testing and
+loops.
+
+So I just went with the straight brute force approach.
+
+I did find a bunch of different algorithms on the Wikipedia site for Integer
+Factorization:
+http://en.wikipedia.org/wiki/Integer_factorization
+
+
+Notes #1
+============
+(2010/12/03)
+
+After verifying the solution, the author's had noticed an interesting and simply
+performance improvement.  After two, there will not be any even number factors.
+They would have already been reduced by the 2 factor.  So the stepping process
+for testing terms/factors and actually step over all the even numbers (+= 2).
+
+
+Verification
+=======================
+2010/12/03 - Succeed: 6857
+
+
+/* vim: set textwidth=80 nu: */
