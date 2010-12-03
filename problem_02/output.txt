@@ -1,0 +1,7 @@
+Total = 4613730;
+Last value set = { 14930352, 832040, 3524578 }, i = 13, index = 1;
+
+real    0m0.001s
+user    0m0.000s
+sys     0m0.001s
+

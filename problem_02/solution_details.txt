@@ -1,0 +1,134 @@
+Solution Discussion
+===================
+(2010/12/02)
+
+For this problem, the brute force way would be to simply add run the Fibonacci
+sequence and test the 1's place bit for each number to see if needed to be added
+to the final total until the current number is grearter that 4 million.
+
+However, writing out the first many numbers, it becomes more clear that there is
+a pattern emerging among the evens.  It makes since because adding two even
+numbers will always be even, adding two odds will always be even and adding an
+odd and even number will always be odd.  So start start of the sequence is:
+
+(0 1) 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 ...
+
+Classifying them as odd or even, we see that every 3rd number is even:
+
+1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 ...
+o e o o e  o  o  e  o  o   e   o   o   e   o    o    e
+
+After looking for some arbitrary relationships among the even numbers, I started
+to see that a given even could be related to the evens before it:
+
+  2 * 4 +   0 = 8
+  8 * 4 +   2 = 34
+ 34 * 4 +   8 = 144
+144 * 4 +  34 = 610
+610 * 4 + 144 = 2584
+
+It looks like there is a simple pattern of using the two most recent even
+numbers to find the current number. It looks like we can define the relationship
+as:
+
+xi = 4*x(i-3) + x(i-6)
+
+However, this is not evidence enough to apply it all the way through.  It needs
+to be supported generically for the numbers in the sequence.  So we start
+looking at the equations for each number.  Starting with a smaller even number,
+8, since we are looking at the evens.
+
+1  2  3  5  8 
+x1 x2 x3 x4 x5
+
+x3 = x1 + x2
+x4 = x2 + x3
+
+x5 = x3 + x4
+   = x3 + (x2 + x3)
+   = x2 + 2*x3
+   = x2 + 2(x1 + x2)
+   = 2*x1 + 3*x2
+
+
+The question becomes, can we make this definition look like the genearl pattern
+that we defined earlier.  It looks like we are close by having that 3*x2 term.
+We we are getting close to the start of the sequence.  So we try with the next
+even number for simplicity.  Again, looking to describe the current number only
+in terms of the even terms.
+
+1  2  3  5  8  13 21 34
+x1 x2 x3 x4 x5 x6 x7 x8
+
+x6 = x4 + x5
+x7 = x5 + x6
+
+x8 = x6 + x7
+   = x6 + (x5 + x6)
+   = x5 + 2*x6
+   = x5 + 2(x4 + x5)
+   = 2*x4 + 3*x5
+   = 2*(x2 + x3) + 3*x5
+   = 2*x2 + 2*x3 + 3*x5
+
+Again, we are close with that 3*x5 term.  But we have that 2*x4 term which is an
+odd number in the sequence.  We need one more x5 term but nothing is too clear.
+But looking back at the x5 breakdown, we see x5 = x2 + 2*x3.  Applying it:
+
+x8 = x2 + (x2 + 2*x3) + 3*x5
+   = x2 + x5 + 3*x5
+   = x2 + 4*x5
+   = x(i-6) + 4*x(i-3)
+
+We now have an even term generically described in terms of the even numbers
+before it.  We can now use our equation for any even number in the Fibonacci
+sequence.
+
+To simplify it though, we will cut out the odd numbers and redefine our sequence
+and equation in terms of only the even numbers:
+
+(0) 2 8 34 144 610 2584
+
+xi = 4*x(i-1) + x(i-2)
+
+
+Programming Solution
+====================
+(2010/12/02)
+
+Since I only need the current number and the two before it, I wanted to save as
+much memory as possible.  So I started looking at how to use a three element
+array to save my even numbers in the sequence.
+
+I decided I could initialize it with the first two numbers of the sequence:
+
++-----------+
+| 0 | 2 | x |
++-----------+
+
+But I would need to manipulate the current value of i to get the first element
+in this array.  The module operator is good for this kind of "circular buffer"
+like indexing.
+
+i = 2:
+  2 + 2 % 3 = 4 % 3 = 1 -> x1  (x(i-1))
+  2 + 1 % 3 = 3 % 3 = 0 -> x0  (x(i-2))
+
+i = 3:
+  3 + 2 % 3 = 5 % 3 = 2 -> x2
+  3 + 1 % 3 = 4 % 3 = 1 -> x1
+
+But to define this more easily in terms of how many back from the current ith
+term we want, we need to flip the additive term from how many back the user
+wants.  So, we subtract the requested "offset" from 3:
+
+array_index(i, off) = (i + (3 - off)) % 3
+
+Everything else for the program is pretty straight foward.  We caculate the
+current value for the term and then add it into the total.  However, that means
+we have already added in the next largest even number that is bigger than 4
+million when the loop terminates.  So we need to subtract it back out before
+displaying the final result.
+
+
+/* vim: set textwidth=80 nu: */
