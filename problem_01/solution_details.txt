@@ -63,4 +63,9 @@ principle.
 http://en.wikipedia.org/wiki/Triangular_number
 
 
+Verifiation
+===========
+Passed on: 2010/12/02
+
+
 /* vim: set textwidth=80: */
