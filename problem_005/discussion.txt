@@ -1,0 +1,12 @@
+Solution Discussion
+===================
+(2010/12/xx)
+
+
+
+Verification
+=======================
+2010/12/06 - Succeed: 232792560
+
+
+/* vim: set textwidth=80 nu: */
