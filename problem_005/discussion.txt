@@ -1,12 +1,71 @@
 Solution Discussion
 ===================
-(2010/12/xx)
+(2010/12/07)
 
+So this problem has it's roots in the sense of a LCM like problem.  I didn't
+realize at first just how much LCM was really at the core to solving this
+problem.
+
+I started with thinking about the number factorizations and knowing that it had
+something to do with the common terms among the factors.  However, after looking
+at the break down of the factors, I noticed that I couldn't really look only at
+them.  For any numbers with multiples of the same factor, I couldn't look only
+at the factors themselves.  Otherwise I wouldn't find any LCM that was divisble
+by the larger terms.
+
+The terms of the LCM had to include the multiplicity details of the prime
+factorizations.  However, I wasn't sure entirely how to properly account for it
+nor how I would search for that information.  I was originally thinking about
+finding pairs but that seemed like an odd approach and thing to be assuming
+about the numbers.
+
+Finally, after a quick Google search for the LCM, I found the solution I needed:
+http://www.math.com/school/subject1/lessons/S1U3L3DP.html
+
+The LCM of any given terms is the multiplication of the prime factors each
+raised to the highest number of times the factor occurs in a given term.
+
+So, for example, if the terms were 18 and 24, their two factorizations would be:
+
+18 -> 2 * 3 * 3
+24 -> 2 * 2 * 2 * 3
+
+For 18, we have two 3's and one 2.  For 24, we have three 2's and one 3.  So the
+LCM for these two terms becomes 2^3 * 3^2 = 8 * 9 = 72.
+
+The same principle can be applied when finding the LCM for more than 2 numbers.
+Simply find the highest occurance of each prime in the factorizations and then
+multiply them all together.
 
 
 Verification
-=======================
+============
 2010/12/06 - Succeed: 232792560
+
+
+Note #1
+============
+(2010/12/07)
+
+The problem discussion has a very clever analysis to this problem and how the
+prime factor term powers can be determined.
+
+Since we are finding the LCM for a fixed range of terms, m..n, (in this problem,
+1..20) we can search for the powers by looking at the numbers instead of
+actually factoring each term in the range.
+
+We need to find the largest power for a given term that stays within the range.
+For example, in the 1..20 case and looking at the 2 prime:
+
+2^1 = 2
+2^2 = 4
+2^3 = 8
+2^4 = 16
+2^5 = 32
+
+So the count for the 2 prime will be 4 since it is the largest that stays within
+the range.  Using this, we can just calculate the counts for each prime starting
+at 2 and going to the sqrt(n).
 
 
 /* vim: set textwidth=80 nu: */
