@@ -1,0 +1,80 @@
+Solution Discussion
+===================
+(2010/12/10)
+
+After breaking this problem down into a smaller example and writing out what was
+happening, I noticed that there was a trend in the numbers.
+
+1^2 + 2^2 + 3^2 + 4^2 + 5^2 = 55
+
+(1 + 2 + 3 + 4 + 5)^2 = 15^2 = 225
+
+The square of sums value, can be expanded out to reall be something more like:
+
+(1 + 2 + 3 + 4 + 5)(1 + 2 + 3 + 4 + 5) =
+	1^2 + 2   + 3   + 4   + 5   +
+	2   + 2^2 + 6   + 8   + 10  +
+	3   + 6   + 3^3 + 12  + 15  +
+	4   + 8   + 12  + 4^4 + 20  +
+	5   + 10  + 15  + 20  + 5^5
+
+If we were to subtract the sum of squares from the square of sums, all the x^2
+terms would end up cancelling out.  This leaves us with:
+
+(1 + 2 + 3 + 4 + 5)^2 - (1^2 + 2^2 + 3^3 + 4^2 + 5^2) =
+	2   + 3   + 4   + 5  +
+	2   + 6   + 8   + 10 +
+	3   + 6   + 12  + 15 +
+	4   + 8   + 12  + 20 +
+	5   + 10  + 15  + 20 
+
+Common factors can be pulled out of each line to simplify:
+
+	1(2 + 3 + 4 + 5) +
+	2(1 + 3 + 4 + 5) +
+	3(1 + 2 + 4 + 5) +
+	4(1 + 2 + 3 + 5) +
+	5(1 + 2 + 3 + 4)
+
+These simplify to :
+
+	1(14) + 2(13) + 3(12) + 4(11) + 5(10)
+
+So there is a trend emerging:
+
+	(Square of Sums) - (Sum of Squares) = sum_{i=i}^{i=n}(i*(Tn(n)-i))
+
+where Tn(n) is the Triangle Number of n: 
+
+	Tn(n) = n(n+1)/2
+
+and is a constant value for a given n;
+
+
+Verification
+============
+2010/12/08 - Failed: 24659150
+2010/12/08 - Succeed: 25164150
+	I had the wrong formula in place for the Triangle Number.
+
+
+Note #1
+============
+(2010/12/10)
+
+The problem discussion was able to derive a formula for the value of the sum of
+squares making their solution O(1).  Whereas, my solution here is O(n).  So not
+bad but not as good as is possible.
+
+While I can follow their work, I am still confused on how the determined that
+they needed to use a 3rd order polynomial for the approximation.  Using a 2nd
+order polynomial and the first three datapoints, the approximation is correct.
+However, it breaks down when trying to prove the correctness of the
+approximation for f(n+1).
+
+However, deriving the polynomial approximation of the 4th order, the coefficient
+for the 4th order term is zero.  Still trying to deduce the exact implications
+of that.
+
+
+/* vim: set textwidth=80 nu: */
