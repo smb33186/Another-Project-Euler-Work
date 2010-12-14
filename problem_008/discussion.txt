@@ -1,0 +1,18 @@
+Solution Discussion
+===================
+(2010/12/14)
+
+Just decided to go with the simple approach on this problem and just iterate
+through the number's digits.  I was trying to think of a good way to avoid
+having to multiply the same set of digits over and over but the zeros in the
+number were throwing kinks in my plans that wouldn't have required more checking
+for every digit.  I thought the checks would end up adding more time than the
+simple multiplcation task.  (However, the difference is probably negligible.)
+
+
+Verification
+============
+2010/12/14 - Succeed: 40824
+
+
+/* vim: set textwidth=80 nu: */
