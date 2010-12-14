@@ -1,0 +1,22 @@
+Solution Discussion
+===================
+(2010/12/13)
+
+After trying for a while to think of a smarter and more clever approach, I
+finally just settled for now on a simple and more brute force approach.
+However, I did optimize in that I skipped all even numbers by incrementing the
+number by 2 each iteration.
+
+I had to modify my factor function to make an isPrime function that tests if the
+number is a prime or not.  I know I could improve the isPrime function that
+would properly take into account the sqrt upper bound for the number.  But my
+first attempt with it was not turning out quite right.  So I scrapped it for
+now.
+
+
+Verification
+============
+2010/12/13 - Succeed: 104743
+
+
+/* vim: set textwidth=80 nu: */
