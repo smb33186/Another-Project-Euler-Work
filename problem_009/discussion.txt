@@ -1,0 +1,45 @@
+Solution Discussion
+===================
+(2010/12/23)
+
+I started with the equations that I had been given:
+
+a^2 + b^2 = c^2			(Eq. 1)
+a + b + c = 1000		(Eq. 2)
+
+Using these two, I wanted to simplify and define a relationship between two of
+the variables.  That would tell me how they should change in relation to each
+other and thereby avoid having to loop over all possible combinations.  I
+decided to look for a and b since they are on the right hand side of Eq. 1.
+Once I know these two values, it would be easy to calculate c using Eq. 2.
+
+So I solved Eq. 2 for c and plugged it into Eq. 1.  After a bit of arithmatic, I
+found the relationship between a and b, solved for b given a, to be:
+
+5e^5 - 1000a
+------------ = b		(Eq. 3)
+  1000 - a
+
+To establish the bounds, I first calculated a when b = 0.  This resulted in a =
+500 which, when checked against the original equations works.  However, it does
+not satisfy the conditions of the problem.  But it gives an upper bound.  I
+repeated this with a = 0 to get an upper bound of b = 500.
+
+Knowing this, my solution was to iterate from a = 1..500 searching for a number
+for b calculated using Eq. 3 that was a whole number.  (Integer, natural number,
+etc.)  For each whole number result for b, I calcuation c (1000 - a - b) and
+then checked the problem conditions.  Since the problem states that there is
+only one combination of natural numbers that matches the condidtions, once I
+found it, I printed the product of a, b, and c and that was the final solution.
+
+I did make one variant on the conditions though.  I only check for a < c and b <
+c.  I don't care whether a < b or not.  Because they can simply be switched once
+a valid combination is found.
+
+
+Verification
+============
+2010/12/23 - Succeed: 31875000
+
+
+/* vim: set textwidth=80 nu: */
