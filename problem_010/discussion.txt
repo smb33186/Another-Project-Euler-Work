@@ -1,0 +1,19 @@
+Solution Discussion
+===================
+(2010/12/23)
+
+I just took the isPrime routine discussed in Problem #7 and implemented it here.
+
+
+Verification
+============
+2010/12/23 - Failed: 142913828920
+	(I had sarted my summing off at 0 instead of accounting for skipping the 2
+	prime)
+2010/12/23 - Failed: 224172088209
+2010/12/23 - Succeed: 142913828922
+	(I had missed some checks with my isPrime routine and that threw things
+	off.)
+
+
+/* vim: set textwidth=80 nu: */
