@@ -1,0 +1,13 @@
+Solution Discussion
+===================
+(2010/12/26)
+
+I just decided to brute force this one and just do a full search.
+
+
+Verification
+============
+2010/12/26 - Succeed: 70600674
+
+
+/* vim: set textwidth=80 nu: */
