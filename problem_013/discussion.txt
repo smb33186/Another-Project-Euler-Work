@@ -1,0 +1,21 @@
+Solution Discussion
+===================
+(2011/01/07)
+
+I started thinking about representing the numbers as doubles which gives 16
+digits of accuracy and hoping that the routing and overflow from adding those
+numbers would not impact the 10 highest digits of the result.  But that seemed
+like it would have been a risky assumption to make given only 16 digits of
+precision and asking for the 10 most significate.  So I started looking around a
+bit more and came across a different approach that looked like it would scall
+better.  I think this will be the best approach for this problem.  However, I
+haven't implemented it yet:
+http://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic
+
+
+Verification
+============
+2011/xx/xx - Succeed: 
+
+
+/* vim: set textwidth=80 nu: */
