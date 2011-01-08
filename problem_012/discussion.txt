@@ -1,0 +1,27 @@
+Solution Discussion
+===================
+(2011/01/08)
+
+One small observation that I had was that the multiples should always be found
+in pairs and the median number would always be <= sqrt(num).  This means when
+searching for possible factors, we only need to search for the first half and
+then double it.  All with exception of the case where the median number is equal
+to the sqrt(num).  In this case, the median factor is squared and therefore only
+counts as one factor.
+
+I went with the simple approach and just figured out which numbers would divide
+evenly into the given triangle number up to sqrt(num).
+
+I did get a bit messed up though because I was adding something incorrectly and
+I had my upper bound set too strictly and so I was stopping too early in some
+cases.  Because my median number was the interger portion of a decimal number, I
+ran into some cases where I would stop too soon if I was only looking for things
+less than (not less than or equal) to my calculated max.
+
+
+Verification
+============
+2011/01/08 - Succeed: 76576500
+
+
+/* vim: set textwidth=80 nu: */
