@@ -116,18 +116,51 @@ char* numbers[] = {
 #include <unistd.h>
 #include <string.h>
 
+#define		RESULT_LEN		70
+#define		DATA_LEN		50
 
 int problem(int argc, char** argv) {
 
 	int i		= 0;
+	int j		= 0;
+	int k		= 0;
 	int count	= sizeof(numbers) / sizeof(char*);
+	unsigned char result[RESULT_LEN+1] = {0};
 
 	printf("number count = %d;\n", count);
 
 	for( i = 0; i < count; ++i ) {
 		printf("number[%d] = %s;\n", i, numbers[i]);
+
+		for( j = 0; j < DATA_LEN; ++j ) {
+			result[(RESULT_LEN-1)-j] += (numbers[i][(DATA_LEN-1)-j] - 0x30);
+			if( result[(RESULT_LEN-1)-j] >= 10 ) {
+				/* Carry over */
+				result[(RESULT_LEN-1)-j] -= 10;
+				for( k = (RESULT_LEN-2)-j; k > 0; --k ) { 
+					++result[k];
+					if( result[k] < 10 ) {
+						break;
+					}
+					result[k] -= 10;
+				}
+			}
+		}
 	}
-	
+
+	printf("Finished adding\n");
+
+	/* Convert result back to ASCII characters */
+	for( i = 0; i < RESULT_LEN; ++i ) {
+		result[i] += 0x30;
+	}
+
+	printf("Finshed converting\n");
+
+	result[RESULT_LEN] = '\0';
+
+	printf("Result = %s;\n", result);
+
 	return( 0 );
 }
 

@@ -15,7 +15,7 @@ http://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic
 
 Verification
 ============
-2011/xx/xx - Succeed: 
+2011/01/08 - Succeed: 5537376230
 
 
 /* vim: set textwidth=80 nu: */
