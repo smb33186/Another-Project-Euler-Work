@@ -14,12 +14,27 @@
 #include <unistd.h>
 #include <string.h>
 
-// #define MAX_START 1000000
-// #define MAX_NUMBER  (3 * MAX_START + 1)
-#define MAX_START 33
-#define MAX_NUMBER  (MAX_START * MAX_START * MAX_START)
+#define MAX_START 1000000
+// #define MAX_START	100
+#define MAX_SAVED	(MAX_START * 3 + 1)
 
-int numbers[MAX_NUMBER + 1];
+int numbers[MAX_SAVED + 1];
+
+void printSavedTable()
+{
+	int i;
+	printf("Saved numbers table:\n");
+	for (i = 0; i <= MAX_SAVED; ++i) {
+		if (i != 0 && i % 8 == 0)
+			printf("\n");
+
+		printf("[%4d] = %5d  ", i, numbers[i]);
+
+	}
+
+	if (i != 0 && i % 8 != 0)
+		printf("\n");
+}
 
 int printSequence(int num) {
 	int cnt = 0;
@@ -43,98 +58,92 @@ int printSequence(int num) {
 	return (cnt);
 }
 
+int calcSequence(int start)
+{
+	int cnt = 1;
+	int num = start;
 
-#if 0
-int populateNumbers() {
+	while (num > 1) {
+		if (num <= MAX_SAVED && numbers[num] != 0) {
+			// At a known point
+			return (cnt + numbers[num] - 1);
+		}
 
-	int i, j;
-	int count = 0;
+		if (num % 2 == 0) {
+			// Even number
+			num >>= 1;		// Divid by 2
+		} else {
+			// Odd number
+			num = num * 3 + 1;
+		}
 
-	for (i = 2; i <= 100; i++) {
+		cnt++;
+	}
+
+	return(cnt);
+}
+
+int populateMultiples(int base, int cnt)
+{
+	int i;
+	for (i = base; i <= MAX_SAVED; i <<= 1) {
+		numbers[i] = cnt++;
+	}
+
+	return(0);
+}
+
+int populateSaved()
+{
+	int i;
+	int seqLen = 0;
+
+	for (i = 1; i <= MAX_START; i += 2) {
 		if (numbers[i] == 0) {
-			if (i % 2 == 0) {
+			seqLen = calcSequence(i);
+			populateMultiples(i, seqLen);
+		}
+	}
 
-			count = numbers[i/2];
-			for (j = i; j <= 100; j *= 2, count++) {
-				numbers[j] = count;
-			}
+	return(0);
+}
+
+int findBest(int* start)
+{
+	int i;
+	// int seqLen = 0;
+	int longest = 0;
+	int best = 0;
+
+	for (i = MAX_START; i > 0; --i) {
+		if (numbers[i] == 0) {
+			printf("Problem...? i = %d has no count\n", i);
 		} else {
-			count = numbers[i-1];
-			for (j = i * 2; j <= 100; j *= 2, count++) {
-				numbers[j] = count;
+			if (numbers[i] > longest) {
+				longest = numbers[i];
+				best = i;
 			}
 		}
 	}
 
-	return (0);
-}
-#endif
-
-int populateSequence(int num) {
-
-	int i;
-	int count = 1;
-	int count2;
-
-	if (numbers[num] != 0) {
-		return (numbers[num]);
-	}
-
-	if (num % 2 == 0) {
-		count = populateSequence(num / 2) + 1;
-	} else {
-		count = populateSequence(num * 3 + 1) + 1;
-	}
-
-	numbers[num] = count;
-	count2 = count + 1;
-	for (i = 2 * num; i < MAX_NUMBER; i *= 2, count2++) {
-		numbers[i] = count2;
-	}
-
-	return (count);
-}
-
-void printNumbers(int withSeq) {
-
-	int i;
-
-	for (i = 0; i <= MAX_NUMBER; ++i) {
-		printf("%d => %d", i, numbers[i]);
-		if (withSeq) {
-			printf(":\n");
-			printSequence(i);
-			printf("==============\n");
-		} else {
-			printf("\n");
-		}
-	}
-}
-
-
-int populateNumbers() {
-
-	int i;
-
-	for (i = 2; i <= MAX_START; ++i) {
-		populateSequence(i);
-	}
-
-	printNumbers(0);
-
-	return (0);
+	if (start)
+		*start = best;
+	
+	return (longest);
 }
 
 int problem(int argc, char** argv) {
 
-	// int i = 2;
+	int longest = 0;
+	int bestStart = 0;
 
 	memset(&numbers[0], 0, sizeof (numbers));
 
-	numbers[0] = 0;
-	numbers[1] = 1; // Number 1 (Special/seed case)
+	populateSaved();
+	// printSavedTable();
+	longest = findBest(&bestStart);
 
-	populateNumbers();
+	printf("Longest sequence (%d) under %d starts at %d\n", longest, MAX_START, bestStart);
 
 	return( 0 );
 }

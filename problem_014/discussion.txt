@@ -5,6 +5,7 @@ Solution Discussion
 
 Verification
 ============
+2012/09/20 - 910107 with sequence length of 476 - Failed
 2012/xx/xx - Succeed: 
 
 
