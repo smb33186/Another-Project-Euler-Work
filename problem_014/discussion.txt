@@ -10,6 +10,11 @@ that because I was using signed ints, the sign was probably causing overflow
 issues.  For a final solution, I ran with unsigned longs instead.  But, 32-bits
 was enough as long as they were not signed values.
 
+To accomplish the speed, I maintain a table of known sequence lengths.  Then,
+starting at 1 up to 100000 I populate that table for any one that doesn't have a
+value.  Once a value is known, I also populate all the multiples of two for that
+base value.
+
 
 Verification
 ============
