@@ -5,7 +5,7 @@
  *
  * Modification Log:
  *	Date			Change
- *	2012/05/01		Initial authoring. 
+ *	2012/09/20		Initial authoring. 
  *
  */
 
@@ -16,10 +16,10 @@
 
 #define MAX_START 1000000
 
-int calcSequence(int start)
+unsigned long calcSequence(unsigned long start)
 {
-	int cnt = 1;
-	int num = start;
+	unsigned long cnt = 1;
+	unsigned long num = start;
 
 	while (num > 1) {
 		if (num % 2 == 0) {
@@ -38,10 +38,10 @@ int calcSequence(int start)
 
 int problem(int argc, char** argv) {
 
-	int i;
-	int seqLen = 0;
-	int longest = 0;
-	int bestStart = 0;
+	unsigned long i;
+	unsigned long seqLen = 0;
+	unsigned long longest = 0;
+	unsigned long bestStart = 0;
 
 	for (i = MAX_START; i > 0; --i) {
 		seqLen = calcSequence(i);
@@ -51,7 +51,7 @@ int problem(int argc, char** argv) {
 		}
 	}
 	
-	printf("Longest sequence (%d) under %d starts at %d\n", longest, MAX_START, bestStart);
+	printf("Longest sequence (%lu) under %d starts at %lu\n", longest, MAX_START, bestStart);
 
 	return(0);
 }
