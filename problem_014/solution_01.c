@@ -18,11 +18,11 @@
 // #define MAX_START	100
 #define MAX_SAVED	(MAX_START * 3 + 1)
 
-int numbers[MAX_SAVED + 1];
+unsigned int numbers[MAX_SAVED + 1];
 
 void printSavedTable()
 {
-	int i;
+	unsigned int i;
 	printf("Saved numbers table:\n");
 	for (i = 0; i <= MAX_SAVED; ++i) {
 		if (i != 0 && i % 8 == 0)
@@ -36,8 +36,8 @@ void printSavedTable()
 		printf("\n");
 }
 
-int printSequence(int num) {
-	int cnt = 0;
+unsigned int printSequence(unsigned int num) {
+	unsigned int cnt = 0;
 	while (num > 1) {
 		cnt++;
 		printf("%5d -> ", num);
@@ -58,10 +58,10 @@ int printSequence(int num) {
 	return (cnt);
 }
 
-int calcSequence(int start)
+unsigned int calcSequence(unsigned int start)
 {
-	int cnt = 1;
-	int num = start;
+	unsigned int cnt = 1;
+	unsigned int num = start;
 
 	while (num > 1) {
 		if (num <= MAX_SAVED && numbers[num] != 0) {
@@ -83,9 +83,9 @@ int calcSequence(int start)
 	return(cnt);
 }
 
-int populateMultiples(int base, int cnt)
+unsigned int populateMultiples(unsigned int base, unsigned int cnt)
 {
-	int i;
+	unsigned int i;
 	for (i = base; i <= MAX_SAVED; i <<= 1) {
 		numbers[i] = cnt++;
 	}
@@ -93,10 +93,10 @@ int populateMultiples(int base, int cnt)
 	return(0);
 }
 
-int populateSaved()
+unsigned int populateSaved()
 {
-	int i;
-	int seqLen = 0;
+	unsigned int i;
+	unsigned int seqLen = 0;
 
 	for (i = 1; i <= MAX_START; i += 2) {
 		if (numbers[i] == 0) {
@@ -108,12 +108,12 @@ int populateSaved()
 	return(0);
 }
 
-int findBest(int* start)
+unsigned int findBest(unsigned int* start)
 {
-	int i;
-	// int seqLen = 0;
-	int longest = 0;
-	int best = 0;
+	unsigned int i;
+	// unsigned int seqLen = 0;
+	unsigned int longest = 0;
+	unsigned int best = 0;
 
 	for (i = MAX_START; i > 0; --i) {
 		if (numbers[i] == 0) {
@@ -134,8 +134,8 @@ int findBest(int* start)
 
 int problem(int argc, char** argv) {
 
-	int longest = 0;
-	int bestStart = 0;
+	unsigned int longest = 0;
+	unsigned int bestStart = 0;
 
 	memset(&numbers[0], 0, sizeof (numbers));
 

@@ -1,12 +1,20 @@
 Solution Discussion
 ===================
-(2012/xx/xx)
+(2012/09/20)
+After a quick failed attempted, I started thinking about the size of the numbers
+that might be coming out.  Especially when I looked at two sequential numbers
+and saw that they produced the exact same sequence length.  That struck me as
+odd and I started wondering if I was getting value range problems.  I first
+tried using unsigened ints and got a different answer.  That confirmed for me
+that because I was using signed ints, the sign was probably causing overflow
+issues.  For a final solution, I ran with unsigned longs instead.  But, 32-bits
+was enough as long as they were not signed values.
 
 
 Verification
 ============
-2012/09/20 - 910107 with sequence length of 476 - Failed
-2012/xx/xx - Succeed: 
+2012/09/20 - Failed: 910107 with sequence length of 476
+2012/09/20 - Succeed: 837799 with sequence length of 525
 
 
 /* vim: set textwidth=80 nu: */
