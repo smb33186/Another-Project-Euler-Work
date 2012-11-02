@@ -5,6 +5,7 @@ Solution Discussion
 
 Verification
 ============
+2012/11/02 - Failed: 68719476755 (Tried a mathematical relationship: 2^((N-1)*2-2) + (N-1))
 2012/xx/xx - Succeed: 
 
 
