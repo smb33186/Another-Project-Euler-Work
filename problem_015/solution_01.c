@@ -36,6 +36,44 @@ unsigned long _recurse(int x, int y, int N)
 	return(cnt);
 }
 
+unsigned long _tablePropagation(int N)
+{
+	int i;
+	int k;
+	unsigned long result = 0;
+	unsigned long** table = NULL;
+	
+	table = calloc(N, sizeof(unsigned long *));
+	for (i = 0; i < N; ++i) {
+		table[i] = calloc(N, sizeof(unsigned long));
+	}
+
+	// Init boundary cases
+	for (i = 0; i < N; ++i) {
+		table[0][i] = 1;
+		table[i][0] = 1;
+	}
+
+	for (i = 1; i < N; ++i) {
+		// Traverse the diagonal
+		for (k = i; k < N; ++k) {
+			table[i][k] = table[i-1][k] + table[i][k-1];
+			table[k][i] = table[i][k];
+		}
+	}
+
+	result = table[N-1][N-1];
+
+	for (i = 0; i < N; ++i) {
+		free(table[i]);
+		table[i] = NULL;
+	}
+	free(table);
+	table = NULL;
+
+	return(result);
+}
+
 int problem15(int argc, char** argv)
 {
 	int N = 0;
@@ -55,7 +93,8 @@ int problem15(int argc, char** argv)
 		return(1);
 	}
 
-	pathCnt = _recurse(0, 0, N);
+	// pathCnt = _recurse(0, 0, N);
+	pathCnt = _tablePropagation(N);
 	printf("Path count for a %dx%d grid: %lu\n", N, N, pathCnt);
 
 	return(0);
