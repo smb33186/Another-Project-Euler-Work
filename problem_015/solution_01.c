@@ -14,9 +14,9 @@
 #include <unistd.h>
 #include <string.h>
 
-int _recurse(int x, int y, int N)
+unsigned long _recurse(int x, int y, int N)
 {
-	int cnt = 0;
+	unsigned long cnt = 0;
 
 	if (x == N-1 && y == N-1) {
 		// At bottom edge corner
@@ -39,7 +39,7 @@ int _recurse(int x, int y, int N)
 int problem15(int argc, char** argv)
 {
 	int N = 0;
-	int pathCnt = 0;
+	unsigned long pathCnt = 0;
 
 	if (argc != 2) {
 		printf("Error: Incorrect parameter count (%d)\n", argc);
@@ -56,7 +56,7 @@ int problem15(int argc, char** argv)
 	}
 
 	pathCnt = _recurse(0, 0, N);
-	printf("Path count for a %dx%d grid: %d\n", N, N, pathCnt);
+	printf("Path count for a %dx%d grid: %lu\n", N, N, pathCnt);
 
 	return(0);
 }
