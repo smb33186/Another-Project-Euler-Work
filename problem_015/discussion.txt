@@ -14,7 +14,8 @@ Re-do with the table propagation but I thought I was just missing that a
 All my math was correct but I thought an unsigned long was actually 8 bytes on a
 32-bit system but apparently it is only 4 bytes.  So, I was overflowing the
 4-byte integer and getting an incorrect value despite the algorithm being
-correct.
+correct.  Forgot to mention, this is connected to Pascal's Triangle when the
+table is being built.  To verify the answer, I could do ((20x20) choose 20).
 
 
 Verification
