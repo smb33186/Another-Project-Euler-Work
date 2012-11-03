@@ -6,6 +6,7 @@ Solution Discussion
 Verification
 ============
 2012/11/02 - Failed: 68719476755 (Tried a mathematical relationship: 2^((N-1)*2-2) + (N-1))
+2012/11/03 - Failed: 985525432 (First attempt with a recursive program)
 2012/xx/xx - Succeed: 
 
 
