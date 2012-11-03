@@ -94,7 +94,7 @@ int problem15(int argc, char** argv)
 	}
 
 	// pathCnt = _recurse(0, 0, N);
-	pathCnt = _tablePropagation(N);
+	pathCnt = _tablePropagation(N+1);
 	printf("Path count for a %dx%d grid: %lu\n", N, N, pathCnt);
 
 	return(0);

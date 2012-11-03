@@ -7,6 +7,9 @@ Verification
 ============
 2012/11/02 - Failed: 68719476755 (Tried a mathematical relationship: 2^((N-1)*2-2) + (N-1))
 2012/11/03 - Failed: 985525432 (First attempt with a recursive program)
+2012/11/03 - Failed: 407575348
+	Re-do with the table propagation but I thought I was just missing that a 
+	20x20 grid actually has 21x21 intersections/lines in each direction
 2012/xx/xx - Succeed: 
 
 
