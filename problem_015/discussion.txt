@@ -1,16 +1,28 @@
 Solution Discussion
 ===================
-(2012/xx/xx)
+(2012/11/03)
+Tried a mathematical relationship: 2^((N-1)*2-2) + (N-1)
+
+(2012/11/03)
+First attempt with a recursive program
+
+(2012/11/03)
+Re-do with the table propagation but I thought I was just missing that a 
+20x20 grid actually has 21x21 intersections/lines in each direction
+
+(2012/11/03)
+All my math was correct but I thought an unsigned long was actually 8 bytes on a
+32-bit system but apparently it is only 4 bytes.  So, I was overflowing the
+4-byte integer and getting an incorrect value despite the algorithm being
+correct.
 
 
 Verification
 ============
-2012/11/02 - Failed: 68719476755 (Tried a mathematical relationship: 2^((N-1)*2-2) + (N-1))
-2012/11/03 - Failed: 985525432 (First attempt with a recursive program)
+2012/11/02 - Failed: 68719476755
+2012/11/03 - Failed: 985525432
 2012/11/03 - Failed: 407575348
-	Re-do with the table propagation but I thought I was just missing that a 
-	20x20 grid actually has 21x21 intersections/lines in each direction
-2012/xx/xx - Succeed: 
+2012/11/03 - Succeed: 137846528820
 
 
 /* vim: set textwidth=80 nu: */

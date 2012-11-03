@@ -36,16 +36,16 @@ unsigned long _recurse(int x, int y, int N)
 	return(cnt);
 }
 
-unsigned long _tablePropagation(int N)
+unsigned long long _tablePropagation(int N)
 {
 	int i;
 	int k;
-	unsigned long result = 0;
-	unsigned long** table = NULL;
+	unsigned long long result = 0;
+	unsigned long long** table = NULL;
 	
-	table = calloc(N, sizeof(unsigned long *));
+	table = calloc(N, sizeof(unsigned long long *));
 	for (i = 0; i < N; ++i) {
-		table[i] = calloc(N, sizeof(unsigned long));
+		table[i] = calloc(N, sizeof(unsigned long long));
 	}
 
 	// Init boundary cases
@@ -77,7 +77,7 @@ unsigned long _tablePropagation(int N)
 int problem15(int argc, char** argv)
 {
 	int N = 0;
-	unsigned long pathCnt = 0;
+	unsigned long long pathCnt = 0;
 
 	if (argc != 2) {
 		printf("Error: Incorrect parameter count (%d)\n", argc);
@@ -95,7 +95,7 @@ int problem15(int argc, char** argv)
 
 	// pathCnt = _recurse(0, 0, N);
 	pathCnt = _tablePropagation(N+1);
-	printf("Path count for a %dx%d grid: %lu\n", N, N, pathCnt);
+	printf("Path count for a %dx%d grid: %llu\n", N, N, pathCnt);
 
 	return(0);
 }
