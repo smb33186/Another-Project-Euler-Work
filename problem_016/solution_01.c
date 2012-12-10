@@ -13,6 +13,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <sys/time.h>
+#include <time.h>
+#include <math.h>
 
 #define MAX_NUM_LENGTH		(400)
 #define MAX_EXPONENT_BITS	(32)
@@ -170,6 +173,30 @@ long long int sumDigits(BigExponent_t *x) {
 	return(sum);
 }
 
+/* These two timer helpers are from:
+ *	http://stackoverflow.com/questions/1468596/c-programming-calculate-elapsed-time-in-milliseconds-unix
+ */
+/* Return 1 if the difference is negative, otherwise 0.  */
+int timeval_subtract(struct timeval *result, struct timeval *t2, struct timeval *t1)
+{
+	long int diff = (t2->tv_usec + 1000000 * t2->tv_sec) - (t1->tv_usec + 1000000 * t1->tv_sec);
+	result->tv_sec = diff / 1000000;
+	result->tv_usec = diff % 1000000;
+
+	return (diff<0);
+}
+
+void timeval_print(struct timeval *tv)
+{
+	char buffer[30];
+	time_t curtime;
+
+	printf("%ld.%06ld", tv->tv_sec, tv->tv_usec);
+	curtime = tv->tv_sec;
+	strftime(buffer, 30, "%m-%d-%Y  %T", localtime(&curtime));
+	printf(" = %s.%06ld\n", buffer, tv->tv_usec);
+}
+
 int problem16(int argc, char** argv) {
 
 	int exp = 0;
@@ -213,6 +240,9 @@ int problem16(int argc, char** argv) {
 		final->length = 1;
 	}
 
+	struct timeval tvBegin, tvEnd, tvDiff;
+
+	gettimeofday(&tvBegin, NULL);
 	int i;
 	int bit = 0x2;
 	int mask = MAX_EXPONENT & (~1);
@@ -249,11 +279,15 @@ int problem16(int argc, char** argv) {
 			break;
 		}
 	}
+	gettimeofday(&tvEnd, NULL);
 
 	char *str = convertAscii(final);
 	printf("2 ^ %d = %s\n", exp, str);
 
 	printf("Sum of digits: %lld\n", sumDigits(final));
+
+	timeval_subtract(&tvDiff, &tvEnd, &tvBegin);
+	printf("%ld.%06ld\n", tvDiff.tv_sec, tvDiff.tv_usec);
 	
 	return(0);
 }
