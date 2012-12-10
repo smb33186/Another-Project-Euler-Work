@@ -1,11 +1,33 @@
 Solution Discussion
 ===================
-(2011/xx/xx)
+(2012/12/10)
+I did have to spend a pretty good amount of time looking around at suggestions
+and thoughts.  There were a couple postings on StackExchange that had pretty
+detailed solutions and tricks to this kind of problem.
+
+In the end, I used my own soltion to a technique posted in a SE thread.
+
+2^13 = 2^(b1101b) = 1*2^8 * 1*2^4 (* 0*2^2) * 2^1
+
+If we decompose the exponent in this manner, we realize that we can easily
+calculate the terms that need to be multiplied to form the final solutions.
+Finding those terms are as simple as squaring the term before it.
+
+The technique is founded on the principle of powers:
+(2^4)*(2^4) = (2^4)^2 = 2^(4*2) = 2^8
+
+Therefore, we only need to sqaure the "working" number as many times as the most
+significate bit in the specified exponent.  Then, whenever that bit is set in
+the specified exponent, that "working" number is multiplied into the "final" or
+result number.
+
+The worst case would be when all bits are set.  The best case is when only a
+single bit is setup.
 
 
 Verification
 ============
-2011/xx/xx - Succeed: 
+2012/12/10 - Succeed: 1366
 
 
 /* vim: set textwidth=80 nu: */
