@@ -148,6 +148,28 @@ BigExponent_t* squareNumber(BigExponent_t *x, BigExponent_t *result) {
 	return (multiplyNumbers(x, x, result));
 }
 
+long long int sumDigits(BigExponent_t *x) {
+
+	long long int sum = 0;
+
+	if (!x) {
+		printf("No number specified for digit summing\n");
+		return (-1);
+	}
+
+	if (x->length > MAX_NUM_LENGTH) {
+		printf("Invalid number length (%d)\n", x->length);
+		return (-1);
+	}
+
+	int i;
+	for (i = 0; i < x->length; ++i) {
+		sum += x->decimal[i];
+	}
+
+	return(sum);
+}
+
 int problem16(int argc, char** argv) {
 
 	int exp = 0;
@@ -230,6 +252,8 @@ int problem16(int argc, char** argv) {
 
 	char *str = convertAscii(final);
 	printf("2 ^ %d = %s\n", exp, str);
+
+	printf("Sum of digits: %lld\n", sumDigits(final));
 	
 	return(0);
 }
