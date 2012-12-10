@@ -248,7 +248,7 @@ int problem16(int argc, char** argv) {
 	int mask = MAX_EXPONENT & (~1);
 	for (i = 2; i < MAX_EXPONENT_BITS; ++i) {
 		/* Still more bits to be checked? */
-		printf("mask = %08x, bit = %08x, i = %d\n", mask, bit, i);
+		// printf("mask = %08x, bit = %08x, i = %d\n", mask, bit, i);
 		if (exp & mask) {
 			if ((squareNumber(working, result)) != result) {
 				printf("Failure squaring the working number\n");
@@ -261,7 +261,7 @@ int problem16(int argc, char** argv) {
 
 			/* Does this bit need to be included in the final */
 			if (exp & bit) {
-				printf("Include bit (%d) in final\n", i);
+				// printf("Include bit (%d) in final\n", i);
 				if ((multiplyNumbers(final, working, result)) != result) {
 					printf("Failed multiplying the final and working numbers\n");
 					return (1);
@@ -275,7 +275,7 @@ int problem16(int argc, char** argv) {
 			bit <<= 1;
 			mask <<= 1;
 		} else {
-			printf("No more bits in exponent (mask = %08x, bit = %08x, i = %d)\n", mask, bit, i);
+			// printf("No more bits in exponent (mask = %08x, bit = %08x, i = %d)\n", mask, bit, i);
 			break;
 		}
 	}
