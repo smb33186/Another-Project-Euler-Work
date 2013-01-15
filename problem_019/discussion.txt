@@ -1,0 +1,16 @@
+Solution Discussion
+===================
+(2013/01/14)  Just looped over the months and added up the days.  Anywhere that
+the day count modulated by 7 was zero meant that day was on a Sunday.
+
+
+Verification
+============
+2013/01/14 - Failed: 16
+	Just tried the first result that popped up.
+2013/01/14 - Succeed: 171
+	My strategy was actually correct.  But, I was accidentally only going from
+	1991 through 2000 instead of 1901 through 2000.
+
+
+/* vim: set textwidth=80 nu: */
