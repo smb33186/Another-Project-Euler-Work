@@ -1,0 +1,24 @@
+For simplicity and verification, I just used Python quickly to generate the solution:
+
+>>> def factorial(n):
+...     if (n > 1):
+...             return(n * factorial(n-1));
+...     else:
+...             return(1);
+...
+>>> factorial(10)
+3628800
+>>> factorial(100)
+93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000L
+>>> number = factorial(100)
+>>> numStr = str(number)
+>>> numStr
+'93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000'
+>>> sum = 0;
+>>> for idx in range(0, len(numStr)):
+...     sum += int(numStr[idx]);
+...
+>>> sum
+648
+>>>
+
