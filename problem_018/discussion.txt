@@ -1,0 +1,13 @@
+Solution Discussion
+===================
+(2013/01/28)
+This was a fairly simple dynamic programming problem.  Just inverted the tree
+and fill in a table.  It's not a terribly memory efficient for larger problems.
+
+
+Verification
+============
+2013/01/28 - Succeed: 1074
+
+
+/* vim: set textwidth=80 nu: */
