@@ -1,0 +1,19 @@
+Solution Discussion
+===================
+(2013/02/06)  Spent a while researching some of the big int multiplication and
+division strategies.  Didn't end up using any of them due to complexity for
+these smaller problems.  Multiplication is fairly easy but division turns out to
+be a bit messier.
+
+Once all the extra routines were added to handle the number management, this one
+was pretty straight forward.
+
+Verified solution using Python to calculation 100!.
+
+
+Verification
+============
+2011/02/06 - Succeed: 648
+
+
+/* vim: set textwidth=80 nu: */

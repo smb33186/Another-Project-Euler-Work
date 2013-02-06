@@ -138,6 +138,17 @@ void big_num_print(big_num_t *n, const char *name) {
 	printf("\n");
 }
 
+int big_num_sum_digits(big_num_t *n) {
+	int i;
+	int sum = 0;
+
+	for (i = n->length-1; i >=0; i--) {
+		sum += n->num[i];
+	}
+
+	return(sum);
+}
+
 
 int problem(int argc, char** argv) {
 
@@ -177,6 +188,8 @@ int problem(int argc, char** argv) {
 
 	big_num_print(&f, "f");
 	big_num_print(w1, "result");
+
+	printf("Digit sum: %d\n", big_num_sum_digits(w1));
 
 	return(0);
 }
