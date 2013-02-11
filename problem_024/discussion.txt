@@ -11,6 +11,9 @@ Verification
 2013/02/10 - Failed: 2783915604
 	Tried again by hand because I thought I had made a mistake with some of my
 	work but I guess not.
+2013/02/10 - Failed: 2783915406
+	Tried a third time after working through a small example to validate my
+	strategy.  So I must still have a math error somehwere I'm pretty sure.
 2011/xx/xx - Succeed: 
 
 

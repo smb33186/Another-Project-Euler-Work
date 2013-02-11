@@ -115,11 +115,35 @@ Repeating for the 8th digit (2!):
 1000000-999996
 4
 
-With the 8th (0___4_6___): 27839156xx
+With the 8th (0___4_6___): 27839154xx
 
 Since we are now at the millionth, it's the first combination:
 
-(0___4_____): 2783915604
+(0_____6___): 2783915406
+
+
+
+Smaller example for thinking through the process:
+0,1,2,3
+0123 0132 0213 0231 0312 0321
+1023 1032 1203 1230 1302 1320
+2013 2031 2103 2130 2301 2310
+3012 3021 3102 3120 3201 3210
+
+3! = 6
+20/6 = 3
+0+18 = 18
+(0123) -> 3xxx
+
+2! = 2
+20-18 = 2
+2/2 = 1
+(012_) -> 31xx
+
+@ 20 (0_2_) -> 3102  --> Wrong, 1 too many
+
+(012_) -> 30xx  => (_12_) -> 3012
+
 
 
 /* vim: set textwidth=80 nu: */
