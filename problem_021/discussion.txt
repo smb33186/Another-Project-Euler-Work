@@ -1,6 +1,11 @@
 Solution Discussion
 ===================
-(2011/xx/xx)
+(2013/02/10)
+The problem with my first attempts was that I was doing the multiplication for
+only up to half of the MAX as needed but I wasn't checking the second half of
+the range for amicable pairs.  Since I only check when the divisor sum is less
+than the current number (because I'm populating the multiples from lowest to
+highest), I was stopping too soon when checking for pairs.
 
 
 Verification
@@ -8,7 +13,7 @@ Verification
 2013/02/10 - Failed: 8836
 2013/02/10 - Failed: 8442
 	Had an adding error in my code.  Still incorrect answer though.
-2011/xx/xx - Succeed: 
+2013/02/10 - Succeed: 31626
 
 
 /* vim: set textwidth=80 nu: */

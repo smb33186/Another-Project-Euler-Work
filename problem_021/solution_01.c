@@ -42,6 +42,16 @@ int problem021(int argc, char** argv) {
 		}
 	}
 
+	for (; i <= MAX; ++i) {
+		if (a_nums[i] < i) {
+			if (a_nums[a_nums[i]] == i) {
+				/* Found amicable pair */
+				printf("Amicable pair found: %d (%d) & %d (%d)\n", i, a_nums[i], a_nums[i], a_nums[a_nums[i]]);
+				pair_sum += a_nums[i] + i;
+			}
+		}
+	}
+
 	printf("Sum of all amicable numbers under %d: %d\n", MAX, pair_sum);
 
 	return(0);
