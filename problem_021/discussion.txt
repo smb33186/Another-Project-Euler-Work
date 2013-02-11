@@ -6,6 +6,8 @@ Solution Discussion
 Verification
 ============
 2013/02/10 - Failed: 8836
+2013/02/10 - Failed: 8442
+	Had an adding error in my code.  Still incorrect answer though.
 2011/xx/xx - Succeed: 
 
 
