@@ -1,0 +1,125 @@
+
+Since we are doing them in numerical order, if we fixed the first digit, that
+leaves 9 digits that can be iterated in the last 9 positions.  Starting with 0
+in the most significant position, with 9 remaining digits, that means there are
+9! combinations:
+9*8*7*6*5*4*3*2*1
+362880
+
+If we then used 1 as the first digit, we'd have a new set of 9 to be iterated
+over, giving us another 362880 combinations.  So, iterating through all
+combinations with 0 & 1 in the first places, we've used nearly 725,000
+combinations:
+362880*2
+725760
+
+If we went all the way through combinations with a 2 in the most significant
+position, we'd go over our 1 millionth combination:
+362880*3
+1088640
+
+So, we know that the 1 millionth combination must start with a 2:
+2xxxxxxxxx
+
+Repeating, for each digit, we work towards the 1 millionth combination.  For
+each value of y in 2yxxxxxxxx, there are 8! possibilities:
+8*7*6*5*4*3*2*1
+40320
+
+1000000-725760
+274240
+274240/40320
+6
+40320*6
+241920
+725760+241920
+967680
+
+After that, we can see that 5 is the next digit in the sequence with 967,680
+combinations used:
+26xxxxxxxx
+
+Repeating for the 3rd digit (7!):
+7*6*5*4*3*2*1
+5040
+1000000-967680
+32320
+32320/5040
+6
+5040*6
+30240
+967680+967680
+1935360
+967680+30240
+997920
+
+With 3rd: 256xxxxxxx
+
+Repeating for the 4th digit (6!):
+6*5*4*3*2*1
+720
+1000000-997920
+2080
+2080/720
+2
+720*2
+1440
+997920+1440
+999360
+
+With 4th: 2561xxxxxx
+
+Repeating for the 5th digit (5!):
+5*4*3*2*1
+120
+1000000-999360
+640
+640/120
+5
+120*5
+600
+999360+600
+999960
+
+With 5th: 25618xxxxx
+
+Repeating for the 6th digit (4!):
+4*3*2*1
+24
+1000000-999960
+40
+40/24
+1
+999960+24
+999984
+
+With 6th: 256183xxxx
+
+Repeating for the 7th digit (3!):
+3*2*1
+6
+1000000-999984
+16
+16/6
+2
+6*2
+12
+999984+12
+999996
+
+With 7th: 2561834xxx
+
+Repeating for the 8th digit (2!):
+2*1
+2
+1000000-999996
+4
+
+With the 8th: 25618347xx
+
+Since we are now at the millionth, it's the first combination:
+
+2561834709
+
+
+/* vim: set textwidth=80 nu: */

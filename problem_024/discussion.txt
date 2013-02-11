@@ -1,0 +1,14 @@
+Solution Discussion
+===================
+(2011/xx/xx)
+
+
+Verification
+============
+2013/02/10 - Failed: 2561834709
+	Tried to figure it out by hand.  But I guess I have something wrong in my
+	math.
+2011/xx/xx - Succeed: 
+
+
+/* vim: set textwidth=80 nu: */
