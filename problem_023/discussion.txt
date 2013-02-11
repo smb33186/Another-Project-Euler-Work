@@ -1,0 +1,22 @@
+Solution Discussion
+===================
+(2013/02/10)
+After re-reading the problem description, I decided that 1 and above would be
+the proper starting point.  I thought at first that anything under 24 would be
+excluded since we knew that it was the smallest positive interger that could be
+the sum of two abundant numbers.  But, after re-thinking it, that didn't make
+sense for "all positive interger that couldn't be expressed as the sum of two
+abundant numbers" to exclude these numbers.
+
+
+Verification
+============
+2013/02/10 - Failed: 4179865
+	First try.  Just typed it up and ran it.  No surprise.
+2013/02/10 - Failed: 4179595
+	Was starting non-two-abundant-sumable number search at 4, thought it needed
+	to start higher since the lowest would be 24.  But that didn't work either.
+2013/02/10 - Succeed: 4179871
+
+
+/* vim: set textwidth=80 nu: */
