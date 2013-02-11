@@ -18,7 +18,7 @@ position, we'd go over our 1 millionth combination:
 362880*3
 1088640
 
-So, we know that the 1 millionth combination must start with a 2:
+So, we know that the 1 millionth combination must start with a 2 (0123456789):
 2xxxxxxxxx
 
 Repeating, for each digit, we work towards the 1 millionth combination.  For
@@ -35,9 +35,9 @@ each value of y in 2yxxxxxxxx, there are 8! possibilities:
 725760+241920
 967680
 
-After that, we can see that 5 is the next digit in the sequence with 967,680
-combinations used:
-26xxxxxxxx
+After that, we can see that 6 is the next digit in the sequence with 967,680
+combinations used (01_3456789):
+27xxxxxxxx
 
 Repeating for the 3rd digit (7!):
 7*6*5*4*3*2*1
@@ -53,7 +53,7 @@ Repeating for the 3rd digit (7!):
 967680+30240
 997920
 
-With 3rd: 256xxxxxxx
+With 3rd (01_3456_89): 278xxxxxxx
 
 Repeating for the 4th digit (6!):
 6*5*4*3*2*1
@@ -67,7 +67,7 @@ Repeating for the 4th digit (6!):
 997920+1440
 999360
 
-With 4th: 2561xxxxxx
+With 4th (01_3456__9): 2783xxxxxx
 
 Repeating for the 5th digit (5!):
 5*4*3*2*1
@@ -81,7 +81,7 @@ Repeating for the 5th digit (5!):
 999360+600
 999960
 
-With 5th: 25618xxxxx
+With 5th (01__456__9): 27839xxxxx
 
 Repeating for the 6th digit (4!):
 4*3*2*1
@@ -93,7 +93,7 @@ Repeating for the 6th digit (4!):
 999960+24
 999984
 
-With 6th: 256183xxxx
+With 6th (01__456___): 278391xxxx
 
 Repeating for the 7th digit (3!):
 3*2*1
@@ -107,7 +107,7 @@ Repeating for the 7th digit (3!):
 999984+12
 999996
 
-With 7th: 2561834xxx
+With 7th (0___456___): 2783915xxx
 
 Repeating for the 8th digit (2!):
 2*1
@@ -115,11 +115,11 @@ Repeating for the 8th digit (2!):
 1000000-999996
 4
 
-With the 8th: 25618347xx
+With the 8th (0___4_6___): 27839156xx
 
 Since we are now at the millionth, it's the first combination:
 
-2561834709
+(0___4_____): 2783915604
 
 
 /* vim: set textwidth=80 nu: */
