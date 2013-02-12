@@ -1,0 +1,13 @@
+Solution Discussion
+===================
+(2013/xx/xx)
+
+
+Verification
+============
+2013/02/12 - Failed: 870885382
+	First attempt after getting the program working.
+2013/xx/xx - Succeed: 
+
+
+/* vim: set textwidth=80 nu: */
