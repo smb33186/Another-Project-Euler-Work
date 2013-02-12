@@ -128,12 +128,7 @@ int problem22(int argc, char** argv) {
 	 * strtok "merges" multiple repeated delimiter character
 	 * into a single instance too. */
 	token = strtok(fData, delim);
-	while (1) {
-
-		last_token = token;
-		token = strtok(NULL, delim);
-		if (!token)
-			break;
+	while (token) {
 
 		if (strlen(token) < 1) {
 			printf("Error: Token length too short (file offset: %d, last token: \"%s\")\n", (token - fData), last_token);
@@ -186,6 +181,8 @@ int problem22(int argc, char** argv) {
 			}
 		}
 
+		last_token = token;
+		token = strtok(NULL, delim);
 		list_count++;
 	}
 

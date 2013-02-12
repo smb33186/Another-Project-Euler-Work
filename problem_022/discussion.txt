@@ -1,13 +1,27 @@
 Solution Discussion
 ===================
-(2013/xx/xx)
+(2013/02/12)
+At first I started thinking this was an good problem to try mmapping a file in
+to memory.  However, since the tokenizer modified the original memory location
+and I wanted to make sure that didn't get pushed back to the file, I decided to
+just read it once directly and then manipulate that one block of memory.
+
+Used strtok to parse the string and split it into the individual name tokens.
+As the names were parsed, their scores were calculated and then they were
+inserted into a double-linked list.  This part was very simple to get working
+and was easy.
+
+Final score was as easy as traversing the list and calculating the score along
+the way.
 
 
 Verification
 ============
 2013/02/12 - Failed: 870885382
 	First attempt after getting the program working.
-2013/xx/xx - Succeed: 
+2013/02/12 - Succeed: 871198282
+	The first name was being skipped by mistake.  strtok already skipped
+	deliminters at the first of the string.
 
 
 /* vim: set textwidth=80 nu: */
