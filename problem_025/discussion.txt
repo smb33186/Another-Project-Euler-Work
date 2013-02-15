@@ -1,0 +1,14 @@
+Solution Discussion
+===================
+(2013/02/15)
+After some of the earlier "big number" problems, this one was pretty simple and
+straight forward to do.  Again, code is not terribly clean nor good about
+checking for errors.
+
+
+Verification
+============
+2013/02/15 - Succeed: 4782  => F_4782
+
+
+/* vim: set textwidth=80 nu: */
