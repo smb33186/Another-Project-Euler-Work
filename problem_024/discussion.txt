@@ -1,6 +1,10 @@
 Solution Discussion
 ===================
-(2011/xx/xx)
+(2013/02/16)
+I had a small assumption error with my calculation.  When the remainder went
+perfectly into the remaining combinations, I was thinking that would mean it was
+the "start of the next" row.  But after working through an example, I realized
+that in that case, it was the very last combination of that range.
 
 
 Verification
@@ -14,7 +18,6 @@ Verification
 2013/02/10 - Failed: 2783915406
 	Tried a third time after working through a small example to validate my
 	strategy.  So I must still have a math error somehwere I'm pretty sure.
-2011/xx/xx - Succeed: 
-
+2013/02/16 - Succeed: 2783915460
 
 /* vim: set textwidth=80 nu: */
