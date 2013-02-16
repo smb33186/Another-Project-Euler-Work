@@ -1,0 +1,149 @@
+
+Since we are doing them in numerical order, if we fixed the first digit, that
+leaves 9 digits that can be iterated in the last 9 positions.  Starting with 0
+in the most significant position, with 9 remaining digits, that means there are
+9! combinations:
+9*8*7*6*5*4*3*2*1
+362880
+
+If we then used 1 as the first digit, we'd have a new set of 9 to be iterated
+over, giving us another 362880 combinations.  So, iterating through all
+combinations with 0 & 1 in the first places, we've used nearly 725,000
+combinations:
+362880*2
+725760
+
+If we went all the way through combinations with a 2 in the most significant
+position, we'd go over our 1 millionth combination:
+362880*3
+1088640
+
+So, we know that the 1 millionth combination must start with a 2 (0123456789):
+2xxxxxxxxx
+
+Repeating, for each digit, we work towards the 1 millionth combination.  For
+each value of y in 2yxxxxxxxx, there are 8! possibilities:
+8*7*6*5*4*3*2*1
+40320
+
+1000000-725760
+274240
+274240/40320
+6
+40320*6
+241920
+725760+241920
+967680
+
+After that, we can see that 6 is the next digit in the sequence with 967,680
+combinations used (01_3456789):
+27xxxxxxxx
+
+Repeating for the 3rd digit (7!):
+7*6*5*4*3*2*1
+5040
+1000000-967680
+32320
+32320/5040
+6
+5040*6
+30240
+967680+967680
+1935360
+967680+30240
+997920
+
+With 3rd (01_3456_89): 278xxxxxxx
+
+Repeating for the 4th digit (6!):
+6*5*4*3*2*1
+720
+1000000-997920
+2080
+2080/720
+2
+720*2
+1440
+997920+1440
+999360
+
+With 4th (01_3456__9): 2783xxxxxx
+
+Repeating for the 5th digit (5!):
+5*4*3*2*1
+120
+1000000-999360
+640
+640/120
+5
+120*5
+600
+999360+600
+999960
+
+With 5th (01__456__9): 27839xxxxx
+
+Repeating for the 6th digit (4!):
+4*3*2*1
+24
+1000000-999960
+40
+40/24
+1
+999960+24
+999984
+
+With 6th (01__456___): 278391xxxx
+
+Repeating for the 7th digit (3!):
+3*2*1
+6
+1000000-999984
+16
+16/6
+2
+6*2
+12
+999984+12
+999996
+
+With 7th (0___456___): 2783915xxx
+
+Repeating for the 8th digit (2!):
+2*1
+2
+1000000-999996
+4
+
+With the 8th (0___4_6___): 27839154xx
+
+Since we are now at the millionth, it's the first combination:
+
+(0_____6___): 2783915406
+
+
+
+Smaller example for thinking through the process:
+0,1,2,3
+0123 0132 0213 0231 0312 0321
+1023 1032 1203 1230 1302 1320
+2013 2031 2103 2130 2301 2310
+3012 3021 3102 3120 3201 3210
+
+3! = 6
+20/6 = 3
+0+18 = 18
+(0123) -> 3xxx
+
+2! = 2
+20-18 = 2
+2/2 = 1
+(012_) -> 31xx
+
+@ 20 (0_2_) -> 3102  --> Wrong, 1 too many
+
+(012_) -> 30xx  => (_12_) -> 3012
+
+
+
+/* vim: set textwidth=80 nu: */
