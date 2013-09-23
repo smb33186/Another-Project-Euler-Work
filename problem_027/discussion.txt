@@ -1,0 +1,22 @@
+Solution Discussion
+===================
+(2013/09/23)
+After thinking about it for a little while, I noticed a couple things that would
+help to greatly reduce the number of combinations necessary for testing.
+
+* When n = 0, b must be prime since it is the only contributor to the result.
+	0^2 + a*0 + b = b
+* When n = 1, a must be an odd number for the result to be a prime number:
+	1^2 + a*1 + b = 1 + a + b = a + b = (p - 1)
+	- b is already negative since it is a prime number
+	- a + b must be even to make it an odd when adding 1
+* When n = 1, a > -b otherwise the result would be a negative number and not a
+  prime.
+
+
+Verification
+============
+2013/09/23 - Succeed: -59231
+
+
+/* vim: set textwidth=80 nu: */
