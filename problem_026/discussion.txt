@@ -1,0 +1,20 @@
+Solution Discussion
+===================
+(2013/09/12)
+After understanding some of the problem a bit better and doing some research, I
+was able to get it pretty easily.  If it wasn't for filtering out all the
+non-prime numbers first, the check for a remainder of 1 would not have worked.
+I got this from some of the discussion comments from one of the resources
+referenced.
+
+It's not too surprising that the longest decimal sequence is 1 less than that
+prime (982 for prime 983).  Since we are using the remainder, and since we abort
+on a remainder of 1, there are up to that prime-1 possibilities.
+
+
+Verification
+============
+2013/09/12 - Succeed: 983
+
+
+/* vim: set textwidth=80 nu: */
