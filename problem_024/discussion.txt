@@ -1,0 +1,23 @@
+Solution Discussion
+===================
+(2013/02/16)
+I had a small assumption error with my calculation.  When the remainder went
+perfectly into the remaining combinations, I was thinking that would mean it was
+the "start of the next" row.  But after working through an example, I realized
+that in that case, it was the very last combination of that range.
+
+
+Verification
+============
+2013/02/10 - Failed: 2561834709
+	Tried to figure it out by hand.  But I guess I have something wrong in my
+	math.
+2013/02/10 - Failed: 2783915604
+	Tried again by hand because I thought I had made a mistake with some of my
+	work but I guess not.
+2013/02/10 - Failed: 2783915406
+	Tried a third time after working through a small example to validate my
+	strategy.  So I must still have a math error somehwere I'm pretty sure.
+2013/02/16 - Succeed: 2783915460
+
+/* vim: set textwidth=80 nu: */
