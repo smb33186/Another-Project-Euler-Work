@@ -1,0 +1,26 @@
+Solution Discussion
+===================
+(2013/10/16)
+Used a quick Python program to get the result for verification.  Still
+investigating why the C program didn't work.
+
+As it turns out, after spending some time trying to figure out why I was
+matching more duplications, I found the reason: integer overflows.  I had
+defined the power field to be a 1-byte char and with some of the higher power
+and larger base numbers, I was overflowing the power field for my number
+representation.  After upping the size to be a 2-byte short instead, I matched
+the results of the Python validation exactly.
+
+I have not looked at the other user's answers yet to see if my idea of breaking
+the numbers into their factors and comparing them that way instead of actually
+calculating the numbers was a common approach.
+
+
+Verification
+============
+2013/10/16 - Failed: 9025
+	First try using the linked list idea and looking at the factors.
+2013/10/16 - Success: 9183
+
+
+/* vim: set textwidth=80 nu: */
