@@ -8,6 +8,11 @@ Solution Discussion
 	(10^x) - 1 <= (9^5)*x where x is the number of digits
 	Numerically, this produced two solutions: 0 and ~5.5
 
+(2015/10/02)
+	After seeing some of the basic solutions on the problems forum, I decided to
+	try a second solution of just doing a very straight forward solution. Timing
+	the two solutions, this one was considerably faster.
+
 
 Verification
 ============
