@@ -1,0 +1,22 @@
+Solution Discussion
+===================
+(2015/10/02)
+	Started with a very basic and straight forward greedy algoritm starting with
+	the largest values and trying progressively small pence combinations until a
+	match was found. I vaguely remember from somewhere a rule with this style of
+	"box filling" problems that starting with a greedy algorithm of the biggest
+	values typically is a reliable strategy.
+
+
+Verification
+============
+2015/10/02 - Failed: 72161
+	First attempt. Just typed out the solution and tried running it on the first
+	successful compliation.
+2015/10/02 - Succeed: 73682
+	Had a small bug in my logic that was skipping out of some combinations too
+	soon. If the sum was more than 200 pence, I was terminating at that point.
+	But, that was wrong since the small pence values were tested later.
+
+
+/* vim: set textwidth=80 nu: */
