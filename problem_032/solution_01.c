@@ -50,30 +50,41 @@ int
 problem32(int argc, char** argv)
 {
 
-	int i, j;
+	int i, j, k;
 	int cnt = 0;
 	int sum = 0;
 	int i_cnt, j_cnt, r_cnt;
+	int pandigitals[20] = { 0 };
 
 	for (i = 1; i < 9999; ++i) {
 		i_cnt = digit_count(i);
-		for (j = i; j < 9999; ++j) {
-			if (i == j)
-				continue;
-
-			if (i * j > 9999)
-				break;
+		for (j = i+1; j < 9999; ++j) {
 
 			j_cnt = digit_count(j);
 			r_cnt = digit_count(i*j);
 
-			if (i_cnt + j_cnt + r_cnt != 9)
+			if (i_cnt + j_cnt + r_cnt > 9)
+				break;
+
+			if (i_cnt + j_cnt + r_cnt < 9)
 				continue;
 
 			if (check_digits(i, j, i*j)) {
-				printf("Pandigital found: %d * %d = %d\n", i, j, i*j);
-				cnt++;
-				sum += (i * j);
+				int found = 0;
+				for (k = 0; k < 20 && pandigitals[k]; ++k) {
+					if (pandigitals[k] == (i*j)) {
+						found = 1;
+						break;
+					}
+				}
+				if (!found) {
+					printf("Pandigital found: %d * %d = %d\n", i, j, i*j);
+					cnt++;
+					pandigitals[k] = i * j;
+					sum += (i * j);
+				} else {
+					printf("Duplicate found: %d\n", i*j);
+				}
 			}
 		}
 	}

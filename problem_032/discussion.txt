@@ -1,11 +1,24 @@
 Solution Discussion
 ===================
-(2011/xx/xx)
+(2015/10/02) solution_01.c
+	Decided to start with a very straight forward approach to see how it would
+	perform. Realized that, given the constaints, the multiplican and multipler
+	values could never be more than 4 digits (hence the 9999 limits). If either
+	of these numbers had more than 4 digits, then the product would have more
+	than 4 digits too and we'd be over the maximum of 9 possible digits.
+
+	This code would not be good for anything beyond a one-time use since the
+	duplicate detection portion uses a hard-coded length array since I knew I
+	did not have more than 10 pandigitals within the range to deal with.
+	
 
 
 Verification
 ============
 2015/10/02 - Failed: 56370
+	First go at the problem and got a result so I tried it.
+2015/10/02 - Succeed: 45228
+	Forgot to account for the duplicates as hinted at by the note. :)
 
 
 /* vim: set textwidth=80 nu: */
