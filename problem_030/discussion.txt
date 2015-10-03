@@ -1,11 +1,19 @@
 Solution Discussion
 ===================
-(2011/xx/xx)
+(2015/10/02)
+	I was thinking it would be faster to iterate over the combinations of the
+	digits themselves instead of just counting up from the smallest number.
+
+	Also, I used Wolfram Alpha to determine the bounds:
+	(10^x) - 1 <= (9^5)*x where x is the number of digits
+	Numerically, this produced two solutions: 0 and ~5.5
 
 
 Verification
 ============
 2015/10/02 - Failed: 248860
+2015/10/02 - Succeed: 443839
+	I remembered that I actually needed to extend it into the 6 digit range.
 
 
 /* vim: set textwidth=80 nu: */

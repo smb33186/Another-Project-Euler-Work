@@ -44,7 +44,7 @@ const unsigned int pow_5th[10] = {
 	59049	// 9
 };
 #define		powers			pow_5th
-#define		powers_depth	5
+#define		powers_depth	6
 #endif
 
 
@@ -87,7 +87,7 @@ int
 gen_combinations(int level, int max_depth, int sum, int *digits, int *results_sum)
 {
 	int i;
-	int k;
+	// int k;
 	int cnt = 0;
 	int tmp = sum;
 	int min = (int)pow(10.0, (double)level);
@@ -99,6 +99,7 @@ gen_combinations(int level, int max_depth, int sum, int *digits, int *results_su
 
 		// for (k = 0; k < level; ++k) printf("\t");
 		// printf("[%d] min: %d, max: %d, sum: %d\n", level, min, max, sum);
+
 		i = (level ? 0 : 1);
 		for (; i < 10; ++i) {
 			tmp = sum + powers[i];
