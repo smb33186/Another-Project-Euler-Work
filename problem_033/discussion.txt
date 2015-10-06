@@ -1,0 +1,11 @@
+Solution Discussion
+===================
+(2011/xx/xx)
+
+
+Verification
+============
+2015/10/05 - Failed: 200
+
+
+/* vim: set textwidth=80 nu: */
