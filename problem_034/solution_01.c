@@ -35,7 +35,7 @@ problem34(int argc, char** argv)
 	int sum;
 	int solution_sum = 0;
 
-	for (i = 10; i < 1e8; ++i) {
+	for (i = 10; i < 1e7; ++i) {
 		tmp = i;
 		sum = 0;
 		while(tmp > 0) {
