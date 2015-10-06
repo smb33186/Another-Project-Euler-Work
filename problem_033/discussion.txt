@@ -1,11 +1,20 @@
 Solution Discussion
 ===================
-(2011/xx/xx)
+(2015/10/05)
+	Knowing that the fraction had to have 2 digits in both the numerator and
+	denominator, combined with the fraction having to be less than one,
+	constrained the space of the denominator from 99..11 and the numerator
+	always being (d-1)..11. This all combined to pretty heavily reduce the
+	number of combinations that needed to be tested. From there, it was just
+	getting the two digits in both and doing a simple comparison.
 
 
 Verification
 ============
 2015/10/05 - Failed: 200
+2015/10/05 - Succeed: 100
+	I reduced the four fractions themselves but not the product of those four
+	fractions.
 
 
 /* vim: set textwidth=80 nu: */

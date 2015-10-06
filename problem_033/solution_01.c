@@ -40,6 +40,7 @@ problem30(int argc, char** argv)
 {
 	int n, d;
 	int d1, d2, n1, n2;
+	int n_prod = 1;
 	int d_prod = 1;
 
 	for (d = 99; d > 10; --d) {
@@ -60,12 +61,14 @@ problem30(int argc, char** argv)
 				printf("Found candidate: %d / %d == %d%d / %d%d == %d / %d == %f\n", n, d, n2, n1, d2, d1, n2, d2, (double)n / (double)d);
 				reduce(&n2, &d2);
 				printf("  Reduced: %d / %d == %f\n", n2, d2, (double)n2/d2);
+				n_prod *= n2;
 				d_prod *= d2;
 				continue;
 			} else if (n1 == d2 && (double)n2 / (double)d1 == (double)n / (double)d) {
 				printf("Found candidate: %d / %d == %d%d / %d%d == %d / %d == %f\n", n, d, n2, n1, d2, d1, n2, d1, (double)n / (double)d);
 				reduce(&n2, &d1);
 				printf("  Reduced: %d / %d == %f\n", n2, d1, (double)n2/d1);
+				n_prod *= n2;
 				d_prod *= d1;
 				continue;
 			}
@@ -74,18 +77,21 @@ problem30(int argc, char** argv)
 				printf("Found candidate: %d / %d == %d%d / %d%d == %d / %d == %f\n", n, d, n2, n1, d2, d1, n1, d2, (double)n / (double)d);
 				reduce(&n1, &d2);
 				printf("  Reduced: %d / %d == %f\n", n1, d2, (double)n1/d2);
+				n_prod *= n1;
 				d_prod *= d2;
 				continue;
 			} else if (n2 == d2 && (double)n1 / (double)d1 == (double)n / (double)d) {
 				printf("Found candidate: %d / %d == %d%d / %d%d == %d / %d == %f\n", n, d, n2, n1, d2, d1, n1, d1, (double)n / (double)d);
 				reduce(&n1, &d1);
 				printf("  Reduced: %d / %d == %f\n", n1, d1, (double)n1/d1);
+				n_prod *= n1;
 				d_prod *= d1;
 				continue;
 			}
 		}
 	}
 
+	reduce(&n_prod, &d_prod);
 	printf("Denominator product: %d\n", d_prod);
 
 	return(0);
