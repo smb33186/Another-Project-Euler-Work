@@ -1,0 +1,14 @@
+Solution Discussion
+===================
+(2015/10/05)
+	Did the most basic, brute force solution for this problem and got the answer
+	on the first try. However, it takes a decent time to run (approximately 1
+	second). Would like to find some optimizations to speed it up.
+
+
+Verification
+============
+2015/10/05 - Succeed: 40730
+
+
+/* vim: set textwidth=80 nu: */
