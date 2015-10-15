@@ -1,0 +1,21 @@
+Solution Discussion
+===================
+(2015/10/14)
+	I pulled some code from a previous problem for generating the prime number
+	reference set. Instead of dumping to a static, linkable file, I just decided
+	to let it regenerate the primes each execution. Once the table was
+	generated, it was just walking through and finding any candidates. No
+	candidate circular prime could have an even number in it otherwise when it
+	was in the lowest digit position, it would be divisible by 2 and wouldn't be
+	a prime. This made eliminating primes a bit easier.
+	Testing the primes was pretty simple: peal off the lowest digit and put it
+	back in the highest position and then do a check against the reference
+	table.
+
+
+Verification
+============
+2015/10/14 - Succeed: 55
+
+
+/* vim: set textwidth=80 nu: */
