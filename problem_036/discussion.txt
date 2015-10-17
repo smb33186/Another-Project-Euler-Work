@@ -1,0 +1,16 @@
+Solution Discussion
+===================
+(2015/10/17)
+	After a moment of thinking, I realized this problem could be solved by
+	cutting off the lowest digit (of either base) and pushing it on to the end
+	of an accumulator variable; thereby reversing the digits of the number.
+	If the numbers were palendromic, then the original and the "reversed"
+	result would be equal to each other.
+
+
+Verification
+============
+2015/10/17 - Succeed: 872187
+
+
+/* vim: set textwidth=80 nu: */
