@@ -1,0 +1,18 @@
+Solution Discussion
+===================
+(2015/10/17)
+	Took a while to finally get this one. I got 10 of the 11 pretty quickly on a
+	first run through of the problem. I kept thinking I was just limiting the
+	range of the primes too much so I extended it out. After reading around on
+	Wolfram's side about truncated primes, I saw the problem that I was having.
+	I had included a check to rule out all even digits figuring when they were
+	in the lowest position, the number wouldn't be a prime. However, this
+	caused issues with the digit 2 as it is prime when by itself.
+
+
+Verification
+============
+2015/10/17 - Succeed: 748317
+
+
+/* vim: set textwidth=80 nu: */
