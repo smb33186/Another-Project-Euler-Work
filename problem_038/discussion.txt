@@ -1,0 +1,14 @@
+Solution Discussion
+===================
+(2015/10/19)
+	This one took a bit more thinking about how to do it, but in the end it was
+	pretty straight forward. Other than working out bugs in the code, it ended
+	up working on the first time running through all combinations.
+
+
+Verification
+============
+2015/10/19 - Succeed: 932718654
+
+
+/* vim: set textwidth=80 nu: */
