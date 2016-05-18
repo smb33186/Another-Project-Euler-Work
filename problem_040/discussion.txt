@@ -1,0 +1,15 @@
+Solution Discussion
+===================
+(2016/05/17)
+First appraoch was to just kind of go straight into it and count the number of
+digits in a given number and keep adding until the target digit was reached or
+exceeded. Then, knowing the current number would match or exceed the targetted
+digit, decompose the number's digits to get to the desired position.
+
+
+Verification
+============
+2016/05/17 - Succeed: 220
+
+
+/* vim: set textwidth=80 nu: */
