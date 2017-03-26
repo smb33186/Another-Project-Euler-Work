@@ -1,0 +1,14 @@
+Solution Discussion
+===================
+(2017/03/17)
+Took a couple tries since I had an error with my initial algorithm. Then to get
+the right answer, I tried the brute force approach but it was taking too long
+so I stopped it. I was only iterating a small combination of the permutations.
+
+
+Verification
+============
+2011/03/17 - Succeed: 7652413
+
+
+/* vim: set textwidth=80 nu: */
