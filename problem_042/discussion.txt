@@ -1,0 +1,21 @@
+Solution Discussion
+===================
+(2017/03/31)
+My first answer was incorrect since I was using a zero-based index when doing
+my subtraction. (A = 0, but A should be 1.) To simplify the math when growing
+the reference array, it was easy to simplify the equation in terms of the
+previous number instead of doing the power. Bother would have been easy though.
+
+Parsing the file was pretty easy but I had to think through my pointer and
+buffer addressing. Had accidentally missed adding the starting offset in when
+determining the ending pointer location and this was causing me to have some
+partial words.
+
+
+Verification
+============
+2017/03/31 - Incorrect: 165
+2017/03/31 - Succeed: 162
+
+
+/* vim: set textwidth=80 nu: */
